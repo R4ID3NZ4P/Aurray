@@ -4,7 +4,7 @@
 
 #include <vector>
 #include <cstddef>
-
+#include <ostream>
 class Aurray {
 private:
     float* data;
@@ -18,6 +18,7 @@ public:
     void print() const;
 
     Aurray operator+(const Aurray& a) const;
+    friend std::ostream& operator<<(std::ostream& os, const Aurray& a);
 };
 
 #endif

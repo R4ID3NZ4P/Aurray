@@ -1,6 +1,5 @@
 #include "aurray/aurray.hpp"
 #include <immintrin.h>
-#include <iostream>
 #include <cstdlib>
 #include <cassert>
 #include <cstring>
@@ -31,4 +30,17 @@ Aurray Aurray::operator+(const Aurray& a) const {
         __m256 z = _mm256_add_ps(x, y);
         _mm256_store_ps(res.data + i, z);
     }
+
+    return res;
+}
+
+std::ostream& operator<<(std::ostream& os, const Aurray& a) {
+    os << "[";
+    for (size_t i = 0; i < a.size; i++) {
+        os << *(a.data + i);
+        if (i < a.size - 1) os << " ";
+    }
+    os << "]";
+
+    return os;
 }
