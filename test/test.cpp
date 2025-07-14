@@ -25,6 +25,8 @@ int main() {
     std::cout << h << std::endl;
     std::cout << i << std::endl;
     std::cout << j << std::endl;
+    std::cout << a.sum() << std::endl;
+    std::cout << a.dot(b) << std::endl;
 
     return 0;
 }

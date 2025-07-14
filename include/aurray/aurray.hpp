@@ -15,6 +15,8 @@ public:
     ~Aurray();
 
     void load_data(const std::vector<float>& v);
+    float sum() const;
+    float dot(const Aurray& a) const;
 
     Aurray operator+(const Aurray& a) const;
     Aurray operator-(const Aurray& a) const;

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(Aurray LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mavx2 -O3")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mfma -mavx2 -O3")
 
 include_directories(include)
 
