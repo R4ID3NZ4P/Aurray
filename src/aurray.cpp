@@ -34,6 +34,51 @@ Aurray Aurray::operator+(const Aurray& a) const {
     return res;
 }
 
+Aurray Aurray::operator-(const Aurray& a) const {
+    assert(this->size == a.size);
+    
+    Aurray res(this->size);
+
+    for (size_t i = 0; i < this->size; i += 8) {
+        __m256 x = _mm256_load_ps(this->data + i);
+        __m256 y = _mm256_load_ps(a.data + i);
+        __m256 z = _mm256_sub_ps(x, y);
+        _mm256_store_ps(res.data + i, z);
+    }
+
+    return res;
+}
+
+Aurray Aurray::operator*(const Aurray& a) const {
+    assert(this->size == a.size);
+    
+    Aurray res(this->size);
+
+    for (size_t i = 0; i < this->size; i += 8) {
+        __m256 x = _mm256_load_ps(this->data + i);
+        __m256 y = _mm256_load_ps(a.data + i);
+        __m256 z = _mm256_mul_ps(x, y);
+        _mm256_store_ps(res.data + i, z);
+    }
+
+    return res;
+}
+
+Aurray Aurray::operator/(const Aurray& a) const {
+    assert(this->size == a.size);
+    
+    Aurray res(this->size);
+
+    for (size_t i = 0; i < this->size; i += 8) {
+        __m256 x = _mm256_load_ps(this->data + i);
+        __m256 y = _mm256_load_ps(a.data + i);
+        __m256 z = _mm256_div_ps(x, y);
+        _mm256_store_ps(res.data + i, z);
+    }
+
+    return res;
+}
+
 std::ostream& operator<<(std::ostream& os, const Aurray& a) {
     os << "[";
     for (size_t i = 0; i < a.size; i++) {

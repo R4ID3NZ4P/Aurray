@@ -18,6 +18,9 @@ public:
     void print() const;
 
     Aurray operator+(const Aurray& a) const;
+    Aurray operator-(const Aurray& a) const;
+    Aurray operator*(const Aurray& a) const;
+    Aurray operator/(const Aurray& a) const;
     friend std::ostream& operator<<(std::ostream& os, const Aurray& a);
 };
 
