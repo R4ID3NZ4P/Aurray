@@ -15,12 +15,15 @@ public:
     ~Aurray();
 
     void load_data(const std::vector<float>& v);
-    void print() const;
 
     Aurray operator+(const Aurray& a) const;
     Aurray operator-(const Aurray& a) const;
     Aurray operator*(const Aurray& a) const;
     Aurray operator/(const Aurray& a) const;
+    Aurray operator+(float scalar) const;
+    Aurray operator-(float scalar) const;
+    Aurray operator*(float scalar) const;
+    Aurray operator/(float scalar) const;
     friend std::ostream& operator<<(std::ostream& os, const Aurray& a);
 };
 

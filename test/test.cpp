@@ -12,11 +12,19 @@ int main() {
     Aurray d = a - b;
     Aurray e = a * b;
     Aurray f = a / b;
+    Aurray g = a + 2;
+    Aurray h = a - 2;
+    Aurray i = a * 2;
+    Aurray j = a / 2;
 
     std::cout << c << std::endl;
     std::cout << d << std::endl;
     std::cout << e << std::endl;
     std::cout << f << std::endl;
+    std::cout << g << std::endl;
+    std::cout << h << std::endl;
+    std::cout << i << std::endl;
+    std::cout << j << std::endl;
 
     return 0;
 }
