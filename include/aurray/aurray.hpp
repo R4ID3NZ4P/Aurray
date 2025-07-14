@@ -16,6 +16,8 @@ public:
 
     void load_data(const std::vector<float>& v);
     void print() const;
+
+    Aurray operator+(const Aurray& a) const;
 };
 
 #endif
