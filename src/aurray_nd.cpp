@@ -17,11 +17,37 @@ AurrayND::~AurrayND() {
 }
 
 void AurrayND::calculate_strides() {
-    strides.resize(shape.size());
-    size = 1;
+    this->strides.resize(this->shape.size());
+    this->size = 1;
     
-    for(size_t i = shape.size() - 1; i >= 0; i--) {
-        strides[i] = size;
-        size *= shape[i];
+    for(size_t i = this->shape.size() - 1; i >= 0; i--) {
+        this->strides[i] = this->size;
+        this->size *= this->shape[i];
     }
+}
+
+float AurrayND::at(const std::vector<size_t>& index) const {
+    assert(index.size() == this->shape.size());
+
+    size_t ind = 0;
+
+    for (size_t i = 0; i < this->shape.size(); i++) {
+        assert(index[i] < this->shape[i]);
+        ind += index[i] * this->strides[i];
+    }
+
+    return this->data[ind];
+}
+
+void AurrayND::set(const std::vector<size_t>& index, float val) {
+    assert(index.size() == this->shape.size());
+
+    size_t ind = 0;
+
+    for (size_t i = 0; i < this->shape.size(); i++) {
+        assert(index[i] < this->shape[i]);
+        ind += index[i] * this->strides[i];
+    }
+
+    this->data[ind] = val;
 }
